@@ -564,7 +564,169 @@
     .card:nth-child(5) { animation-delay: 0.5s; }
     .card:nth-child(6) { animation-delay: 0.6s; }
 
-   
+   .color-category {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .color-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .category-subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+        
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .color-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #ddd;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: #e0e0e0;
+        }
+        
+        .color-card:hover::before {
+            opacity: 1;
+        }
+        
+        .color-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .color-code {
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            color: #4a5568;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            display: inline-block;
+        }
+        
+        .blank-card {
+            opacity: 0.6;
+            background: #f8f9fa;
+        }
+        
+        .blank-card .color-name {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Category-specific styling */
+        .tea-collection {
+            background: linear-gradient(135deg, rgba(139, 195, 74, 0.1), rgba(76, 175, 80, 0.1));
+            border-left: 5px solid #8bc34a;
+        }
+        
+        .dark-brown-series {
+            background: linear-gradient(135deg, rgba(121, 85, 72, 0.1), rgba(93, 64, 55, 0.1));
+            border-left: 5px solid #795548;
+        }
+        
+        .special-processing {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(142, 36, 170, 0.1));
+            border-left: 5px solid #9c27b0;
+        }
+        
+        .fashion-colors {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(255, 64, 129, 0.1));
+            border-left: 5px solid #e91e63;
+        }
+        
+        .blonde-series {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 235, 59, 0.1));
+            border-left: 5px solid #ffc107;
+        }
+        
+        .brown-series {
+            background: linear-gradient(135deg, rgba(161, 136, 127, 0.1), rgba(141, 110, 99, 0.1));
+            border-left: 5px solid #a1887f;
+        }
+        
+        .base-colors {
+            background: linear-gradient(135deg, rgba(96, 125, 139, 0.1), rgba(84, 110, 122, 0.1));
+            border-left: 5px solid #607d8b;
+        }
+        
+        @media (max-width: 768px) {
+            .colors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .color-count {
+            background: #f5f5f5;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
   </style>
 </head>
 <body>
@@ -783,6 +945,323 @@
         <h3>Package B <br><span class="discount">10% OFF</span></h3>
         <p style="line-height:1.8; text-align: center;">Haircut<br>Ear Cleaning<br>Scalp / Hair Treatment<br>Foot Spa + 30 min Massage</p>
       </div>
+    </div>
+    <div class="container">
+        <h1>Hair Color Collection</h1>
+        
+        <!-- Base Colors -->
+        <div class="color-category base-colors">
+            <div class="category-header">
+                <div class="category-title">Base Colors <span class="color-count">3 colors</span></div>
+                <div class="category-subtitle">Fundamental base tones and mixing colors</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Natural Black</div>
+                    <div class="color-code">2.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Ash Blonde</div>
+                    <div class="color-code">0.11</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Golden</div>
+                    <div class="color-code">0.33</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Blonde Series -->
+        <div class="color-category blonde-series">
+            <div class="category-header">
+                <div class="category-title">Blonde Series <span class="color-count">22 colors</span></div>
+                <div class="category-subtitle">Complete range from very light to dark blonde tones</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Very Light Blonde Golden</div>
+                    <div class="color-code">9.3</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Very Light Blonde Ashen Gold</div>
+                    <div class="color-code">9.31</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Very Light Blonde True Golden</div>
+                    <div class="color-code">9.33</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Very Light Ash Natural Blonde</div>
+                    <div class="color-code">9.01</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde</div>
+                    <div class="color-code">8.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Ash Blonde</div>
+                    <div class="color-code">8.11</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde Golden</div>
+                    <div class="color-code">8.3</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde Ashen Gold</div>
+                    <div class="color-code">8.31</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde True Golden</div>
+                    <div class="color-code">8.33</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde Copper Gold</div>
+                    <div class="color-code">8.34</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde Golden Copper</div>
+                    <div class="color-code">8.43</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Blonde True Copper</div>
+                    <div class="color-code">8.44</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Ash Natural Blonde</div>
+                    <div class="color-code">8.01</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Blonde</div>
+                    <div class="color-code">7.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Blonde Golden</div>
+                    <div class="color-code">7.3</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Blonde Ashen Gold</div>
+                    <div class="color-code">7.31</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Blonde True Golden</div>
+                    <div class="color-code">7.33</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Blonde Copper Gold</div>
+                    <div class="color-code">7.34</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde</div>
+                    <div class="color-code">6.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Golden</div>
+                    <div class="color-code">6.3</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Ashen Gold</div>
+                    <div class="color-code">6.31</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde True Golden</div>
+                    <div class="color-code">6.33</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Copper Gold</div>
+                    <div class="color-code">6.34</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Golden Mahogany</div>
+                    <div class="color-code">6.53</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Golden Mahogany</div>
+                    <div class="color-code">7.53</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Blonde Natural Ash</div>
+                    <div class="color-code">6.01</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Gray Flaxen</div>
+                    <div class="color-code">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brown Series -->
+        <div class="color-category brown-series">
+            <div class="category-header">
+                <div class="category-title">Brown Series <span class="color-count">6 colors</span></div>
+                <div class="category-subtitle">Classic brown tones from light to dark</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Light Brown</div>
+                    <div class="color-code">5.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Brown Golden</div>
+                    <div class="color-code">5.3</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Brown Golden Mahogany</div>
+                    <div class="color-code">5.53</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Medium Brown</div>
+                    <div class="color-code">4.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Brown</div>
+                    <div class="color-code">3.0</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Brown and Gray</div>
+                    <div class="color-code">5.01</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dark Brown Series -->
+        <div class="color-category dark-brown-series">
+            <div class="category-header">
+                <div class="category-title">Dark Brown Series <span class="color-count">4 colors</span></div>
+                <div class="category-subtitle">Rich, deep brown shades with unique undertones</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Dark Brown Green</div>
+                    <div class="color-code">5.02</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Brown Yellow</div>
+                    <div class="color-code">5.03</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Brown Copper</div>
+                    <div class="color-code">5.04</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Dark Brown Linen</div>
+                    <div class="color-code">5.05</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fashion & Creative Colors -->
+        <div class="color-category fashion-colors">
+            <div class="category-header">
+                <div class="category-title">Fashion & Creative Colors <span class="color-count">13 colors</span></div>
+                <div class="category-subtitle">Bold, vibrant colors for creative expression</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Ultra Light Blue</div>
+                    <div class="color-code">11-81</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Red Wine</div>
+                    <div class="color-code">8.66</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Green Stuffy</div>
+                    <div class="color-code">8.77</div>
+                </div>
+                <div class="color-card blank-card">
+                    <div class="color-name">*BLANK*</div>
+                    <div class="color-code">11-73</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Ultra Light Pastel Violet</div>
+                    <div class="color-code">11-65</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Matcha Green</div>
+                    <div class="color-code">6.77</div>
+                </div>
+                <div class="color-card blank-card">
+                    <div class="color-name">*BLANK*</div>
+                    <div class="color-code">11-21</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Purple Wine Red</div>
+                    <div class="color-code">5.66</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Ultra Light Grey</div>
+                    <div class="color-code">11-11</div>
+                </div>
+                <div class="color-card blank-card">
+                    <div class="color-name">*BLANK*</div>
+                    <div class="color-code">11-01</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Cool Red</div>
+                    <div class="color-code">0.25</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Light Red</div>
+                    <div class="color-code">0.66</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Blue</div>
+                    <div class="color-code">0.88</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tea Collection -->
+        <div class="color-category tea-collection">
+            <div class="category-header">
+                <div class="category-title">Tea Collection <span class="color-count">5 colors</span></div>
+                <div class="category-subtitle">Warm, natural tea-inspired tones</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Matcha</div>
+                    <div class="color-code">7.02</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Milk Tea</div>
+                    <div class="color-code">7.03</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Honey Tea</div>
+                    <div class="color-code">7.04</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Lei Muk Color Light</div>
+                    <div class="color-code">7.05</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Cold Brown Tea</div>
+                    <div class="color-code">7.01</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Special Processing Colors -->
+        <div class="color-category special-processing">
+            <div class="category-header">
+                <div class="category-title">Special Processing <span class="color-count">3 colors</span></div>
+                <div class="category-subtitle">Professional bleaching and color mixing products</div>
+            </div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-name">Blonding Cream</div>
+                    <div class="color-code">0.00</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Change Color Partner</div>
+                    <div class="color-code">0.00S</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-name">Special Color</div>
+                    <div class="color-code">TS</div>
+                </div>
+            </div>
+        </div>
     </div>
   </section>
 
